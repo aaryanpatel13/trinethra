@@ -8,11 +8,7 @@
 </head>
 <body>
 
-  <!-- ────────────────────────────────────────
-       HEADER
-       Simple title + one-line description
-       so the intern knows what this tool is
-  ──────────────────────────────────────────── -->
+<!--Header-->
   <header>
     <h1>Trinethra</h1>
     <p class="subtitle">Supervisor Feedback Analyzer — DeepThought</p>
@@ -20,11 +16,7 @@
 
   <main>
 
-    <!-- ────────────────────────────────────────
-         INPUT SECTION
-         Intern pastes the transcript here
-         and clicks "Run Analysis"
-    ──────────────────────────────────────────── -->
+    <!-- Transcript input section -->
     <section id="input-section">
       <label for="transcript">Paste supervisor transcript below</label>
       <textarea
@@ -32,27 +24,21 @@
         placeholder="Paste the full supervisor transcript here..."
         rows="12"
       ></textarea>
-
+    <!--Anaysis & Clear button-->
       <div id="input-actions">
         <button id="analyze-btn">Run Analysis</button>
         <button id="clear-btn">Clear</button>
       </div>
     </section>
 
-    <!-- ────────────────────────────────────────
-         STATUS BAR
-         Shows loading / error / success messages
-         Hidden by default, shown via JS
-    ──────────────────────────────────────────── -->
+    <!--STATUS BAR -->
     <div id="status-bar" class="hidden">
       <span id="status-message"></span>
     </div>
 
-    <!-- ────────────────────────────────────────
-         OUTPUT SECTION
+    <!-- OUTPUT SECTION
          Hidden until analysis comes back from backend.
-         5 cards — one per output type.
-    ──────────────────────────────────────────── -->
+         5 cards — one per output type. -->
     <section id="output-section" class="hidden">
 
       <!-- Draft warning — intern must know this is AI-generated -->
