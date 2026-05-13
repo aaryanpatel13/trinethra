@@ -1,1 +1,108 @@
-#Structure
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trinethra — Supervisor Feedback Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ────────────────────────────────────────
+       HEADER
+       Simple title + one-line description
+       so the intern knows what this tool is
+  ──────────────────────────────────────────── -->
+  <header>
+    <h1>Trinethra</h1>
+    <p class="subtitle">Supervisor Feedback Analyzer — DeepThought</p>
+  </header>
+
+  <main>
+
+    <!-- ────────────────────────────────────────
+         INPUT SECTION
+         Intern pastes the transcript here
+         and clicks "Run Analysis"
+    ──────────────────────────────────────────── -->
+    <section id="input-section">
+      <label for="transcript">Paste supervisor transcript below</label>
+      <textarea
+        id="transcript"
+        placeholder="Paste the full supervisor transcript here..."
+        rows="12"
+      ></textarea>
+
+      <div id="input-actions">
+        <button id="analyze-btn">Run Analysis</button>
+        <button id="clear-btn">Clear</button>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────
+         STATUS BAR
+         Shows loading / error / success messages
+         Hidden by default, shown via JS
+    ──────────────────────────────────────────── -->
+    <div id="status-bar" class="hidden">
+      <span id="status-message"></span>
+    </div>
+
+    <!-- ────────────────────────────────────────
+         OUTPUT SECTION
+         Hidden until analysis comes back from backend.
+         5 cards — one per output type.
+    ──────────────────────────────────────────── -->
+    <section id="output-section" class="hidden">
+
+      <!-- Draft warning — intern must know this is AI-generated -->
+      <div id="draft-banner">
+        ⚠️ AI Draft — Review each section before finalizing. The AI suggests; you decide.
+      </div>
+
+      <!-- 1. RUBRIC SCORE -->
+      <div class="card" id="card-score">
+        <h2>Rubric Score</h2>
+        <div id="score-display">
+          <span id="score-value"></span>
+          <span id="score-label"></span>
+          <span id="score-band"></span>
+        </div>
+        <p id="score-justification"></p>
+      </div>
+
+      <!-- 2. EXTRACTED EVIDENCE -->
+      <div class="card" id="card-evidence">
+        <h2>Extracted Evidence</h2>
+        <p class="card-hint">Quotes pulled directly from the transcript. Each is tagged by sentiment and mapped to a rubric dimension.</p>
+        <div id="evidence-list"></div>
+      </div>
+
+      <!-- 3. KPI MAPPING -->
+      <div class="card" id="card-kpi">
+        <h2>KPI Mapping</h2>
+        <p class="card-hint">Which business KPIs does this Fellow's work connect to?</p>
+        <div id="kpi-list"></div>
+      </div>
+
+      <!-- 4. GAP ANALYSIS -->
+      <div class="card" id="card-gaps">
+        <h2>Gap Analysis</h2>
+        <p class="card-hint">Dimensions the supervisor did not mention. These need follow-up.</p>
+        <div id="gap-list"></div>
+      </div>
+
+      <!-- 5. FOLLOW-UP QUESTIONS -->
+      <div class="card" id="card-questions">
+        <h2>Suggested Follow-up Questions</h2>
+        <p class="card-hint">Ask these in the next call. Each targets a specific gap.</p>
+        <div id="question-list"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
