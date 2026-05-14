@@ -1,1 +1,339 @@
-/* Styling
+/*Removing Brower's Default Spacing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Page Default Styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+/* Navbar */
+header {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 20px 40px;
+  border-bottom: 3px solid #e63946;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+header .subtitle {
+  font-size: 0.85rem;
+  color: #a0a8c0;
+  margin-top: 2px;
+}
+
+/* Controlling the  MAX-WIDHT to improve readibility in large */
+main {
+  max-width: 860px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+/*  Prompt input area */
+#input-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+#input-section label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+/* Text area */
+#transcript {
+  width: 100%;
+  padding: 14px;
+  border: 1.5px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+  color: #1a1a2e;
+  background: #fafafa;
+  transition: border-color 0.2s;
+}
+
+#transcript:focus {
+  outline: none;
+  border-color: #1a1a2e;
+  background: #fff;
+}
+
+#input-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/*  Buttons */
+button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+#analyze-btn {
+  background: #e63946;
+  color: #fff;
+}
+
+#analyze-btn:hover {
+  background: #c1121f;
+}
+
+#analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#clear-btn {
+  background: #eef0f4;
+  color: #444;
+}
+
+#clear-btn:hover {
+  background: #dde0e8;
+}
+
+/* Status bar */
+#status-bar {
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#status-bar.loading {
+  background: #e8f4fd;
+  color: #1565c0;
+  border-left: 4px solid #1565c0;
+}
+
+#status-bar.error {
+  background: #fdecea;
+  color: #b71c1c;
+  border-left: 4px solid #e53935;
+}
+
+#status-bar.success {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-left: 4px solid #43a047;
+}
+
+/* 
+   Draft Banner
+   Must be visually prominent: this is
+   Challenge 4 (showing uncertainty)
+ */
+#draft-banner {
+  background: #fff8e1;
+  border: 1.5px solid #f9a825;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #5c4400;
+  margin-bottom: 20px;
+}
+
+/* Output cards */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-hint {
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+/* Score cards */
+#score-display {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+#score-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #e63946;
+  line-height: 1;
+}
+
+#score-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+#score-band {
+  font-size: 0.85rem;
+  background: #f0f0f0;
+  color: #555;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+#score-justification {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.7;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+/* Evidence items
+   Each quote gets a left border color
+   based on sentiment */
+
+.evidence-item {
+  border-radius: 7px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-left: 4px solid #ccc;
+  background: #fafafa;
+}
+
+.evidence-item.positive { border-left-color: #43a047; }
+.evidence-item.negative { border-left-color: #e53935; }
+.evidence-item.neutral  { border-left-color: #fb8c00; }
+
+.evidence-quote {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.evidence-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.tag.positive { background: #e8f5e9; color: #2e7d32; }
+.tag.negative { background: #fdecea; color: #c62828; }
+.tag.neutral  { background: #fff3e0; color: #e65100; }
+
+.evidence-dimension {
+  font-size: 0.78rem;
+  color: #777;
+}
+
+/* KPI ITEMS */
+.kpi-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: flex-start;
+}
+
+.kpi-item:last-child { border-bottom: none; }
+
+.kpi-name {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1a1a2e;
+  min-width: 140px;
+}
+
+.kpi-evidence {
+  font-size: 0.88rem;
+  color: #555;
+}
+
+/* Gap analysis */
+.gap-item {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background: #fff8f8;
+  border-left: 4px solid #e53935;
+  border-radius: 7px;
+}
+
+.gap-dimension {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #c62828;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.gap-reason {
+  font-size: 0.88rem;
+  color: #555;
+}
+
+/* Follow-up question */
+.question-item {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: #f0f4ff;
+  border-left: 4px solid #1565c0;
+  border-radius: 7px;
+}
+
+.question-text {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.question-target {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* utility */
+.hidden {
+  display: none;
+}
